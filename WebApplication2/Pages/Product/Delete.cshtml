@@ -1,0 +1,27 @@
+﻿
+@page "{id:int}"
+@model WebApplication2.Pages.Product.DeleteModel
+@{
+   
+}
+
+<h1>Delete Product</h1>
+
+@if (Model.Product == null)
+{
+    <p>Product not found!</p>
+}
+else
+{
+    <p>Are you sure you want to delete the following product?</p>
+    <ul>
+        <li>Id: @Model.Product.Id</li>
+        <li>Name: @Model.Product.Name</li>
+        <li>Price: @Model.Product.Price</li>
+        <li>Category: @Model.Product.Category?.Name</li>
+    </ul>
+    <form method="post">
+        <button type="submit">Yes, Delete</button>
+        <a asp-page="/Product/Index">Cancel</a>
+    </form>
+}

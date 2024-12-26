@@ -1,0 +1,23 @@
+﻿@page
+@model WebApplication2.Pages.Category.UpdateModel
+@{
+}
+
+
+<h1>Update Category</h1>
+
+@if (Model.Category == null)
+{
+    <p>Category not found!</p>
+}
+else
+{
+    <form method="post">
+        <label>Name</label>
+        <input type="text" asp-for="Category.Name" />
+        <br />
+        <button type="submit">Update</button>
+    </form>
+}
+
+<a asp-page="/Category/Index">Cancel</a>

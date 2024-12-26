@@ -1,0 +1,18 @@
+﻿@page
+@model WebApplication2.Pages.Category.DeleteModel
+@{
+}
+
+<h1>Delete Category</h1>
+
+<p>Are you sure you want to delete this category?</p>
+
+<p>
+    <strong>@Model.Category.Name</strong>
+</p>
+
+<form method="post">
+    <button type="submit">Delete</button>
+</form>
+
+<a asp-page="/Category/Index">Cancel</a>

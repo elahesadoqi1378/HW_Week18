@@ -1,0 +1,41 @@
+﻿@page
+@model Models.Product.IndexModel
+@{
+}
+
+
+<h1>Products</h1>
+
+@if (Model.Products == null || !Model.Products.Any())
+{
+    <p>No products found!</p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.Products)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Price</td>
+                    <td>@product.Category?.Name</td> <!-- استفاده از ? برای جلوگیری از خطا در صورت عدم وجود دسته‌بندی -->
+                    <td>
+                        <a asp-page="/Product/Update" asp-route-id="@product.Id">Edit</a> |
+                        <a asp-page="/Product/Delete" asp-route-id="@product.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<a asp-page="/Product/Create">Add New Product</a>
